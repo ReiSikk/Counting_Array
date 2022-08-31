@@ -15,7 +15,7 @@ console.log(result);
 console.log(people);
  */
 
-const countingArr = [0];
+const countingArr = [];
 const numberOfLoops = 9;
 let i = 0;
 
@@ -27,13 +27,11 @@ function init() {
 }
 
 function counter() {
+  countingArr.unshift(i);
   i++;
-  if (countingArr.length) {
-    setTimeout(counter, 900);
-    countingArr.unshift(i);
-    countingArr.length = numberOfLoops;
-    console.log(countingArr);
-  } else {
-    console.log("else");
+  console.log(countingArr);
+  setTimeout(counter, 900);
+  if (countingArr.length > 8) {
+    countingArr.pop();
   }
 }
